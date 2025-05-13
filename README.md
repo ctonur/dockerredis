@@ -7,6 +7,7 @@
 - `docker images`: Mevcut Docker görüntülerini listeler.
 - `docker pull redis`: Redis imajını Docker Hub'dan indirir.
 - `docker rmi <image_id>`: Belirtilen Docker görüntüsünü siler.
+- `docker inspect <image_id>`: Docker görüntüsü hakkında detaylı bilgi verir.
 
 ### 🔹 Docker Konteynerleri ile İlgili Komutlar
 - `docker run --name my-redis -d redis`: Arka planda çalışan bir Redis konteyneri oluşturur.
@@ -20,17 +21,7 @@
 - `docker exec -it <container_id> /bin/bash`: Konteyner içine terminal ile girer.
 - `docker rm <container_id>`: Belirtilen konteyneri siler.
 - `docker rm -f $(docker ps -aq)`: Tüm konteynerleri zorla siler.
-
-### 🔹 Docker Ağ (Network) Komutları
-- `docker network ls`: Mevcut ağları listeler.
-- `docker network create <network_name>`: Yeni bir ağ oluşturur.
-- `docker network connect <network_name> <container_id>`: Bir konteyneri ağa bağlar.
-- `docker network disconnect <network_name> <container_id>`: Bir konteyneri ağdan çıkarır.
-
-### 🔹 Docker Hacim (Volume) Komutları
-- `docker volume ls`: Mevcut hacimleri listeler.
-- `docker volume create <volume_name>`: Yeni bir hacim oluşturur.
-- `docker volume rm <volume_name>`: Belirtilen hacmi siler.
+- `docker inspect <container_id>`: Çalışan bir konteyner hakkında detaylı bilgi verir.
 
 ---
 
@@ -71,6 +62,25 @@
    ```bash
    docker rm my-redis
    ```
+
+---
+
+## 📌 `docker inspect` Nedir?
+
+`docker inspect <container_id>` veya `docker inspect <image_id>` komutları, bir Docker konteyneri veya imajı hakkında detaylı JSON formatında bilgi sağlar.
+
+Örnek Kullanım:
+```bash
+docker inspect my-redis
+```
+
+Geri dönen bilgiler:
+- IP Adresi
+- Bağlantı Noktaları
+- Çalışan Process'ler
+- Volume Bilgileri
+- Network Ayarları
+- Ortam Değişkenleri (Environment Variables)
 
 ---
 
